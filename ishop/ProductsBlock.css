@@ -1,0 +1,22 @@
+.ProductsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+.ProductsBlock .NameShop {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+.ProductsBlock .ImageTd img {
+  width: 100px;
+}
+.ProductsBlock .TableProduct {
+  border-collapse: collapse;
+  text-align: center;
+}
+.ProductsBlock .TableProduct th,
+td {
+  border: 1px solid black;
+  padding: 10px 20px;
+}

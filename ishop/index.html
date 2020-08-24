@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IShop</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="ProductsBlock.js"></script>
+    <link rel="stylesheet" type="text/css" href="ProductsBlock.css" />
+    <script>
+        const nameShop = 'IMarket'
+        const productArr = [
+            { category: "phone", model: "Samsung Galaxy S10", image: "https://content2.onliner.by/catalog/device/main/cc1b1fef1926523a97df39b4bf11b6b7.jpeg", price: 1569.00, balance: 10, code: 'smg973fzwdser', },
+            { category: "notebook", model: "Xiaomi Mi Notebook Pro", image: "https://content2.onliner.by/catalog/device/main/1d1407d59734026fb38c4f3686d77020.jpeg", price: 3238.00, balance: 7, code: 'JYU4222CN', },
+            { category: "tv", model: "Samsung UE32T5300AU", image: "https://content2.onliner.by/catalog/device/main/a5d446091a92f25109f8d34d2b41104f.jpeg", price: 635.57, balance: 15, code: 'UE32T5300AU', },
+        ];
+        const titleTable = ['category', 'model', 'image', 'price', 'balance', 'code']
+        ReactDOM.render(
+            React.createElement(ProductsBlock, { nameShop: nameShop, productArr: productArr, titleTable: titleTable }),
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+
+</html>
