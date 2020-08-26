@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISchop2</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src='./Filter.js'></script>
+    <link rel="stylesheet" href="Filter.css">
+    <script>
+        let wordsArr = ['трость', 'дисплей', 'флаг', 'женьшень', 'дождь', 'буг', 'мишень', 'вата', 'евангелие', 'гидростанция', 'пшено', 'коровка', 'витамин', 'чулан', 'женщина', 'нож', 'атом', 'жук', 'око', 'крест', 'обои', 'лохмотья', 'Италия', 'будильник', 'цветок', 'крона', 'утюг', 'зародыш', 'колье', 'аэровокзал', 'суслик', 'почтальон', 'серп', 'кофейник', 'нары', 'ожог', 'фарфор', 'атаман', 'лестница', 'лоджия']
+        ReactDOM.render(React.createElement(Filter, { wordsArr: wordsArr }), document.querySelector('#root'))
+    </script>
+</body>
+
+</html>
