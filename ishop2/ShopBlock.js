@@ -1,7 +1,12 @@
 const ShopBlock = React.createClass({
+  displayName: "ShopBlock",
+
   getInitialState: function () {
-    return { productArr: this.props.productArr };
+    return { 
+      selectProductStr: null,
+      productArr: this.props.productArr };
   },
+
   propTypes: {
     productArr: React.PropTypes.arrayOf(
       React.PropTypes.shape({
@@ -13,18 +18,30 @@ const ShopBlock = React.createClass({
         code: React.PropTypes.string.isRequired,
       })
     ),
+    titleTable: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    nameShop: React.PropTypes.string.isRequired
   },
-  selectProduct: function (e) {
-    e.target.parentElement.classList.toggle("active");
+
+  selectProduct: function (code) {
+    if(code === this.state.selectProductStr){
+      this.setState({selectProductStr: null})
+    }else{
+      this.setState({selectProductStr: code})
+    }
   },
+
   deleteProduct: function (code) {
-    const index = this.state.productArr.findIndex((el) => el.code === code);
-    const newProductArr = [
-      ...this.state.productArr.slice(0, index),
-      ...this.state.productArr.slice(index + 1),
-    ];
-    this.setState({ productArr: newProductArr });
+    let boolAnswer = confirm("Delete?");
+    if (boolAnswer) {
+      const index = this.state.productArr.findIndex((el) => el.code === code);
+      const newProductArr = [
+        ...this.state.productArr.slice(0, index),
+        ...this.state.productArr.slice(index + 1),
+      ];
+      this.setState({ productArr: newProductArr });
+    }
   },
+
   render() {
     const tableItem = [];
     this.props.titleTable.forEach((el, index) => {
@@ -41,10 +58,12 @@ const ShopBlock = React.createClass({
         price: elem.price,
         balance: elem.balance,
         code: elem.code,
+        isSelected: (this.state.selectProductStr === elem.code),
         deleteProduct: (e) => {
           e.stopPropagation();
           this.deleteProduct(elem.code);
         },
+        selectProduct: this.selectProduct
       });
     });
     return React.DOM.div(
@@ -56,7 +75,7 @@ const ShopBlock = React.createClass({
           null,
           React.DOM.tr({ className: "ProductTitle" }, tableItem)
         ),
-        React.DOM.tbody({ onClick: this.selectProduct }, productList)
+        React.DOM.tbody(null, productList)
       )
     );
   },
