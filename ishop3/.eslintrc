@@ -8,5 +8,8 @@
     },
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] , "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
-    }
+    },
+    "parser": "babel-eslint"
+    // "parser": "@babel/eslint-parser"
+    // "plugins":["@babel"]
   }

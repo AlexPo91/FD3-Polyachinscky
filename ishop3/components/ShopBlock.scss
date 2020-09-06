@@ -1,0 +1,28 @@
+.ShopBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  .NameShop {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+  .ImageTd {
+    img {
+      width: 100px;
+    }
+  }
+  .TableProduct {
+    border-collapse: collapse;
+    text-align: center;
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px 20px;
+      width: 100px;
+    }
+    tr.active {
+      background-color: tomato;
+    }
+  }
+}

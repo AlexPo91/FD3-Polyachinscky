@@ -1,0 +1,16 @@
+.FormProduct{
+    width: 500px;
+    padding: 25px 0;
+    .TitleForm{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .divRow{
+        display: flex;
+        padding-bottom: 1px;
+        width: 100%;
+        span{
+            width: 100px;
+        }
+    }
+}

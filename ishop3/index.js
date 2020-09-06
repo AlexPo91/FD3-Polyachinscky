@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
+import ShopBlock from './components/ShopBlock';
 
 ReactDOM.render(
-  <div>
-    <Header />
-  </div>,
+  <ShopBlock />,
   document.querySelector('#root'),
 );
