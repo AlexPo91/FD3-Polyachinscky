@@ -4,25 +4,24 @@ import './CardProduct.scss';
 
 class CardProduct extends React.Component {
   render() {
-    const { product, selectProductStr, workmode } = this.props;
-    if (selectProductStr && workmode === 0) {
-      const selectProduct = product.find((el) => el.code === selectProductStr);
+    const { selectCardProduct, workmode } = this.props;
+    if (selectCardProduct && workmode === 0) {
       return (
         <div className="CardProduct">
           <div className="Product">
-            {selectProduct.category.slice(0, 1).toUpperCase() + selectProduct.category.slice(1)}
+            {selectCardProduct.category.slice(0, 1).toUpperCase() + selectCardProduct.category.slice(1)}
             {' '}
-            {selectProduct.model}
+            {selectCardProduct.model}
           </div>
           <div className="PriceCard">
             Price:
             {' '}
-            {selectProduct.price}
+            {selectCardProduct.price}
           </div>
           <div className="BalanceCard">
             Balance:
             {' '}
-            {selectProduct.balance}
+            {selectCardProduct.balance}
           </div>
         </div>
       );
@@ -31,11 +30,17 @@ class CardProduct extends React.Component {
   }
 }
 CardProduct.defaultProps = {
-  selectProductStr: null,
+  selectCardProduct: null,
 };
 CardProduct.propTypes = {
   workmode: PropTypes.number.isRequired,
-  selectProductStr: PropTypes.string,
-  product: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectCardProduct: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    balance: PropTypes.number.isRequired,
+    code: PropTypes.string.isRequired,
+  }),
 };
 export default CardProduct;

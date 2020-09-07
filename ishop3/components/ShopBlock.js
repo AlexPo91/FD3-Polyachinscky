@@ -94,6 +94,7 @@ class ShopBlock extends React.Component {
         }
       />
     ));
+    const selectCardProduct = product.find((el) => el.code === selectProductStr);
     const buttonNewProduct = workmode !== 0 ? null : <input type="button" className="btn btn-newProduct" value="New Product" onClick={this.addProduct} />;
     // let forms;
     // if (workmode === 1) {
@@ -118,7 +119,7 @@ class ShopBlock extends React.Component {
           </tbody>
         </table>
         {buttonNewProduct}
-        { <CardProduct selectProductStr={selectProductStr} product={product} workmode={workmode} />}
+        { <CardProduct selectCardProduct={selectCardProduct} workmode={workmode} />}
         {/* {forms} */}
         {workmode === 1 && <FormProduct title="Edit existing Product" btn1="Save" btn2="Cancel" editedProduct={editedProduct} />}
       </div>
