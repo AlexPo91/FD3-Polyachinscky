@@ -4,37 +4,34 @@ import './CardProduct.scss';
 
 class CardProduct extends React.Component {
   render() {
-    const { selectCardProduct, workmode } = this.props;
-    if (selectCardProduct && workmode === 0) {
-      return (
-        <div className="CardProduct">
-          <div className="Product">
-            {selectCardProduct.category.slice(0, 1).toUpperCase() + selectCardProduct.category.slice(1)}
-            {' '}
-            {selectCardProduct.model}
-          </div>
-          <div className="PriceCard">
-            Price:
-            {' '}
-            {selectCardProduct.price}
-          </div>
-          <div className="BalanceCard">
-            Balance:
-            {' '}
-            {selectCardProduct.balance}
-          </div>
+    const { selectedProduct } = this.props;
+    return (
+      <div className="CardProduct">
+        <div className="Product">
+          {selectedProduct.category.slice(0, 1).toUpperCase()
+          + selectedProduct.category.slice(1)}
+          {' '}
+          {selectedProduct.model}
         </div>
-      );
-    }
-    return null;
+        <div className="PriceCard">
+          Price:
+          {' '}
+          {selectedProduct.price}
+        </div>
+        <div className="BalanceCard">
+          Balance:
+          {' '}
+          {selectedProduct.balance}
+        </div>
+      </div>
+    );
   }
 }
 CardProduct.defaultProps = {
-  selectCardProduct: null,
+  selectedProduct: null,
 };
 CardProduct.propTypes = {
-  workmode: PropTypes.number.isRequired,
-  selectCardProduct: PropTypes.shape({
+  selectedProduct: PropTypes.shape({
     category: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,

@@ -1,5 +1,7 @@
+$errorColor : red;
+
 .FormProduct{
-    width: 500px;
+    width: 1500px;
     padding: 25px 0;
     .TitleForm{
         font-size: 22px;
@@ -9,8 +11,12 @@
         display: flex;
         padding-bottom: 1px;
         width: 100%;
-        span{
+        span.nameField{
             width: 100px;
+        }
+        span.errorMessage{
+            color:$errorColor;
+            word-wrap: normal
         }
     }
 }
