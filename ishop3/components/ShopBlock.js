@@ -29,7 +29,7 @@ class ShopBlock extends React.Component {
         ...product.slice(0, index),
         ...product.slice(index + 1),
       ];
-      this.setState({ product: newProductArr });
+      this.setState({ product: newProductArr, selectedProduct: null });
     }
   }
 
