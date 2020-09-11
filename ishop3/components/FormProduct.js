@@ -130,7 +130,6 @@ cancelProduct = () => {
     return (
       <div className="FormProduct">
         <div className="TitleForm">{workmode === 1 ? 'Edit existing Product' : 'Add new product'}</div>
-        <div className="PosProduct">1</div>
         {workmode === 2 && (
           <>
             <div className="divRow">
