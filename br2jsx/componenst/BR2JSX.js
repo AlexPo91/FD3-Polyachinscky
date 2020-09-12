@@ -7,8 +7,8 @@ const BR2JSX = (props) => {
   const { text } = props;
   const textJsx = text.split(/<br ?\/?>/).map((el, index) => (
     <Fragment key={index}>
+      {index ? <br /> : null}
       {el}
-      <br />
     </Fragment>
   ));
   return (<div className="br2jsx">{textJsx}</div>);
