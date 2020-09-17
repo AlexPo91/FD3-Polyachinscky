@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-// withRainbowFrame.displayName = 'withRainbowFrame';
 // eslint-disable-next-line no-unused-vars
 const withRainbowFrame = (colors) => (Component) => (props) => {
   // eslint-disable-next-line react/prop-types
