@@ -34,7 +34,6 @@ class MobileCompany extends React.PureComponent {
     mobileEvents.addListener('EDeleteClient', this.deleteClient);
     mobileEvents.addListener('EEditedClient', this.editClient);
     mobileEvents.addListener('ESaveClient', this.saveClient);
-    // mobileEvents.addListener('EAddClient', this.saveClient);
     mobileEvents.addListener('ECancelEditClient', this.cancelEditClient);
   };
 
@@ -42,18 +41,19 @@ class MobileCompany extends React.PureComponent {
     mobileEvents.removeListener('EDeleteClient', this.deleteClient);
     mobileEvents.removeListener('EEditedClient', this.editClient);
     mobileEvents.removeListener('ESaveClient', this.saveClient);
-    // mobileEvents.removeListener('EAddClient', this.saveClient);
     mobileEvents.removeListener('ECancelEditClient', this.cancelEditClient);
   };
 
   deleteClient = (code) => {
     const { clients } = this.state;
-    let newClients = [...clients];
-    const index = newClients.findIndex((el) => el.id === code);
-    newClients = [
-      ...newClients.slice(0, index),
-      ...newClients.slice(index + 1),
-    ];
+    // let newClients = [...clients];
+    // const index = newClients.findIndex((el) => el.id === code);
+    // newClients = [
+    //   ...newClients.slice(0, index),
+    //   ...newClients.slice(index + 1),
+    // ];
+
+    const newClients = clients.filter((el) => el.id !== code);
     this.setState({ clients: newClients });
   }
 
@@ -141,8 +141,9 @@ dataComparison = (obj1, obj2) => {
     } = this.state;
     const visibleClients = this.filterClient(clients, filter);
     const clientsCode = visibleClients.map((el) => <MobileClient key={el.id} client={el} />);
-    const uniqId = clients
-      .reduce((prev, current) => (prev.b > current.b ? prev : current), {}).id + 10;
+    const uniqId = clients.length === 0 ? 10
+      : clients
+        .reduce((prev, current) => (prev.b > current.b ? prev : current), {}).id + 10;
     return (
       <div className="MobileCompany">
         <div className="MobileCompany__item">
