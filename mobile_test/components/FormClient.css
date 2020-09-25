@@ -1,0 +1,10 @@
+.tdBalance, .tdStatus, .tdEditBtn, .tdDeleteBtn {
+    text-align: center;
+}
+.addClientBtn {
+    margin-top: 40px;
+}
+
+.formClient{
+    border-top: 1px solid grey
+}

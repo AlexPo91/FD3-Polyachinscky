@@ -1,0 +1,19 @@
+#root{
+    display: flex;
+    justify-content: center;
+}
+.MobileCompany {
+    border: 2px solid grey;
+    width: 800px;
+}
+.MobileCompany__item{
+    padding: 20px;
+    border-top: 1px solid grey;
+}
+
+.MobileCompany__item:first-child{
+    border-top: none;
+}
+td{
+    padding: 5px 10px;
+}
