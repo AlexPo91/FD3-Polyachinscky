@@ -95,9 +95,7 @@ dataComparison = (obj1, obj2) => {
 
   saveClient = (client) => {
     let changed = false;
-
     const { clients, workmode } = this.state;
-
     let newClients = [];
     if (workmode === 1) {
       newClients = [...clients];

@@ -20,7 +20,6 @@ class FormClient extends React.PureComponent {
   }
 
   saveClient = () => {
-    console.log(this.surname.current.value);
     const { editableClient, workmode, uniqId } = this.props;
     const newClient = {
       ...editableClient,
@@ -40,8 +39,6 @@ class FormClient extends React.PureComponent {
   }
 
   render() {
-    console.log(this.surname);
-    console.log('FormClient render');
     const { workmode } = this.props;
     const {
       surname, name, patronymic, balance,

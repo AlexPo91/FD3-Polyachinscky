@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import clients from '../clients.json';
 import MobileCompany from '../components/MobileCompany';
 
-test('работа Delete Client', () => {
+test('работа Delete Client Tests', () => {
   const component = renderer.create(
     <MobileCompany clients={clients} />,
   );
@@ -11,24 +11,15 @@ test('работа Delete Client', () => {
   let componentTree = component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  const btnDelete = component.root.findAll((n) => n.props.className === 'btnDelete');
+  // Находим все строки в таблицы с данными клиентов и сравниваем колличество
   let rowsClients = component.root.findAll((n) => n.props.className === 'trClient');
-
   expect(rowsClients.length).toBe(4);
 
-  btnDelete[btnDelete.length - 1].props.onClick();
+  // Дергаем коллбэк и сверяем данные
+  component.getInstance().deleteClient(clients[0].id);
+  component.getInstance().deleteClient(clients[clients.length - 1].id);
 
   rowsClients = component.root.findAll((n) => n.props.className === 'trClient');
-
-  expect(rowsClients.length).toBe(3);
-
-  componentTree = component.toJSON();
-  expect(componentTree).toMatchSnapshot();
-
-  btnDelete[0].props.onClick();
-
-  rowsClients = component.root.findAll((n) => n.props.className === 'trClient');
-
   expect(rowsClients.length).toBe(2);
 
   componentTree = component.toJSON();
