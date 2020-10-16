@@ -7,14 +7,14 @@ class Scales {
     }
     getSumScale():number{
         let productSumScale:number=0
-        this.product.forEach(el=> 
+        this.product.forEach((el:Product)=> 
             productSumScale += el.getScale()
             )
         return productSumScale
     }
     getNameList():string[]{
         let productNameList:Array<string>=[]
-        this.product.forEach(el=>productNameList.push(el.getName()))
+        this.product.forEach((el:Product)=>productNameList.push(el.getName()))
         return productNameList
     }
 }
