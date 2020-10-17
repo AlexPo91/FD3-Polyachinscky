@@ -77,10 +77,10 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine{
     }
 }
 
-let apple1 = new Product('apple1', 5)
-let apple2 = new Product('apple2', 6)
-let tomato1 = new Product('tomato1', 7)
-let tomato2 = new Product('tomato2', 8)
+let apple1:Product = new Product('apple1', 5)
+let apple2:Product = new Product('apple2', 6)
+let tomato1:Product = new Product('tomato1', 7)
+let tomato2:Product = new Product('tomato2', 8)
 
 let storageArray = new ScalesStorageEngineArray()
 storageArray.addItem(apple1)
