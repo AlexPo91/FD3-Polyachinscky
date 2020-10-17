@@ -53,11 +53,11 @@ class Tomato implements iScalaible {
     }
 }
 
-let apple1 = new Apple('apple1', 5)
-let apple2 = new Apple('apple2', 6)
+let apple1:Apple = new Apple('apple1', 5)
+let apple2:Apple = new Apple('apple2', 6)
 
-let tomato1 = new Tomato('tomato1', 7)
-let tomato2 = new Tomato('tomato2', 8)
+let tomato1:Tomato = new Tomato('tomato1', 7)
+let tomato2:Tomato = new Tomato('tomato2', 8)
 
 let scales = new Scales
 
