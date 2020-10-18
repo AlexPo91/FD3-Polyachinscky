@@ -67,8 +67,8 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     };
     ScalesStorageEngineLocalStorage.prototype.getItem = function (index) {
         var storage = this.getStorageLS();
-        var product = storage[index];
-        return new Product(product.name, product.scale);
+        // let product:any=storage[index]
+        return new Product(storage[index].name, storage[index].scale);
     };
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {
         var storage = this.getStorageLS();

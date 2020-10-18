@@ -16,7 +16,7 @@ class Scales<StorageEngine extends IStorageEngine> {
     getSumScale():number{
         let productSumScale:number=0
         let index:number=this.storage.getCount()
-        for(let i = 0; i < index; i++){
+        for(let i:number = 0; i < index; i++){
             productSumScale += this.storage.getItem(i).getScale()
         }
         return productSumScale
@@ -55,24 +55,24 @@ class ScalesStorageEngineArray implements IStorageEngine{
 }
 
 class ScalesStorageEngineLocalStorage implements IStorageEngine{
-    getStorageLS():Array<Product>{
+    getStorageLS():Array<any>{
         return JSON.parse(localStorage.getItem('products'))
     }
     addItem(item:Product):void{
         if(!localStorage.length){
             localStorage.setItem('products', JSON.stringify([]))
         } 
-        let storage:Array<Product> = this.getStorageLS()
+        let storage:Array<any> = this.getStorageLS()
         storage.push(item)
         localStorage.setItem('products', JSON.stringify(storage))
     }
     getItem(index:number):Product{
-        let storage:Array<Product> = this.getStorageLS()
-        let product:any=storage[index]
-        return new Product(product.name, product.scale)
+        let storage:Array<any> = this.getStorageLS()
+        // let product:any=storage[index]
+        return new Product(storage[index].name, storage[index].scale)
     }
     getCount():number{
-        let storage:Array<Product> = this.getStorageLS()
+        let storage:Array<any> = this.getStorageLS()
         return storage.length
     }
 }
