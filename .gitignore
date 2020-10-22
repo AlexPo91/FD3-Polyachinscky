@@ -1,5 +1,8 @@
 node_modules/
 .idea/
 /FD3-React-V5
+/FD3-TypeScript-V5
+/FD3-Angular-V5
 text.txt
 dist/
+crm/
